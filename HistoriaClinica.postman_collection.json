@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "9482a3da-3dab-45bb-9417-cbf31e3701da",
+		"name": "HistoriaClinica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25814138"
+	},
+	"item": [
+		{
+			"name": "Retrieve Historia Clinica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}{{api_path}}?historiaclinica=1",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}{{api_path}}",
+					"query": [
+						{
+							"key": "historiaclinica",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
