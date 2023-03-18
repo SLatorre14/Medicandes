@@ -12,5 +12,11 @@ def historiaclinica_view(request, pk):
         historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
         return HttpResponse(historiaclinica, 'application/json')
     
+    if request.method == 'POST':
+        historiaclinica_dto = vl.create_historiaclinica(json.loads(request.body))
+        historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
+        return HttpResponse(historiaclinica, 'application/json')
+
+    
 
 # Create your views here.
