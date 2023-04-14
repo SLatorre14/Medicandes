@@ -8,3 +8,12 @@ def create_historiaclinica(hist):
     historiaClinica = HistoriaClinica(name=hist["numHistoriaClinica"])
     historiaClinica.save()
     return historiaClinica
+
+def update_historiaclinica(numHistoriaClinica, estadoCivil, direccion, antecedentesEnfermedades, motivoConsulta):
+    historiaClinica = get_historiaclinica(numHistoriaClinica)
+    historiaClinica.estadoCivil = estadoCivil["estadoCivil"]
+    historiaClinica.direccion = direccion["direccion"]
+    historiaClinica.antecedentesEnfermedades = antecedentesEnfermedades["antecedentesEnfermedades"]
+    historiaClinica.motivoConsulta = motivoConsulta["motivoConsulta"]
+    historiaClinica.save()
+    return historiaClinica

@@ -17,6 +17,19 @@ def historiaclinica_view(request, pk):
         historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
         return HttpResponse(historiaclinica, 'application/json')
 
-    
+    if request.method == 'PUT':
+        historiaclinica_dto = vl.update_historiaclinica(pk, json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body))
+        historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
+        return HttpResponse(historiaclinica, 'application/json')
+        
+        #data = json.loads(request.body)
+        #estadoCivil = data.get("estadoCivil")
+        #direccion = data.get("direccion")
+        #antecedentesEnfermedades = data.get("antecedentesEnfermedades")
+        #motivoConsulta = data.get("motivoConsulta")
+
+        #historiaclinica_dto = vl.update_historiaclinica(pk, estadoCivil, direccion, antecedentesEnfermedades, motivoConsulta)
+        #historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
+        #return HttpResponse(historiaclinica, 'application/json')
 
 # Create your views here.
