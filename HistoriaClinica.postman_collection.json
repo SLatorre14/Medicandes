@@ -26,6 +26,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update Historia Clinica",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estadoCivil\": \"Casado\",\r\n    \"direccion\": \"calle 140\",\r\n    \"antecedentesEnfermedades\": \"Tos\",\r\n    \"motivoConsulta\": \"Irritacion\",\r\n    \"ultimaModificacion\": \"04/13/2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/historiaclinica/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"historiaclinica",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

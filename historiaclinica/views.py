@@ -18,7 +18,7 @@ def historiaclinica_view(request, pk):
         return HttpResponse(historiaclinica, 'application/json')
 
     if request.method == 'PUT':
-        historiaclinica_dto = vl.update_historiaclinica(pk, json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body))
+        historiaclinica_dto = vl.update_historiaclinica(pk, json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body))
         historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
         return HttpResponse(historiaclinica, 'application/json')
         

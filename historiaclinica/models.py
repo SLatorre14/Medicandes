@@ -13,6 +13,7 @@ class HistoriaClinica(models.Model):
     direccion = models.CharField(max_length=50)
     antecedentesEnfermedades = models.CharField(max_length=50)
     motivoConsulta = models.CharField(max_length=50)
+    ultimaModificacion = models.CharField(max_length=50)
 
     def __str__(self):
         return '{}'.format(self.numHistoriaClinica)

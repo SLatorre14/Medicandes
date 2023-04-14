@@ -9,11 +9,12 @@ def create_historiaclinica(hist):
     historiaClinica.save()
     return historiaClinica
 
-def update_historiaclinica(numHistoriaClinica, estadoCivil, direccion, antecedentesEnfermedades, motivoConsulta):
+def update_historiaclinica(numHistoriaClinica, estadoCivil, direccion, antecedentesEnfermedades, motivoConsulta, ultimaModificacion):
     historiaClinica = get_historiaclinica(numHistoriaClinica)
     historiaClinica.estadoCivil = estadoCivil["estadoCivil"]
     historiaClinica.direccion = direccion["direccion"]
     historiaClinica.antecedentesEnfermedades = antecedentesEnfermedades["antecedentesEnfermedades"]
     historiaClinica.motivoConsulta = motivoConsulta["motivoConsulta"]
+    historiaClinica.ultimaModificacion = ultimaModificacion["ultimaModificacion"]
     historiaClinica.save()
     return historiaClinica
