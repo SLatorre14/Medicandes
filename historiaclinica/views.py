@@ -11,11 +11,6 @@ def historiaclinica_view(request, pk):
         historiaclinica_dto = vl.get_historiaclinica(pk)
         historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
         return HttpResponse(historiaclinica, 'application/json')
-    
-    if request.method == 'POST':
-        historiaclinica_dto = vl.create_historiaclinica(json.loads(request.body))
-        historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
-        return HttpResponse(historiaclinica, 'application/json')
 
     if request.method == 'PUT':
         historiaclinica_dto = vl.update_historiaclinica(pk, json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body), json.loads(request.body))
@@ -32,4 +27,14 @@ def historiaclinica_view(request, pk):
         #historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
         #return HttpResponse(historiaclinica, 'application/json')
 
+@csrf_exempt
+def historiaclinica_view(request):
+    
+        if request.method == 'POST':
+            historiaclinica_dto = vl.create_historiaclinica(json.loads(request.body))
+            historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
+            return HttpResponse(historiaclinica, 'application/json')
+
 # Create your views here.
+
+
