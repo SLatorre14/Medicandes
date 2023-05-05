@@ -4,6 +4,10 @@ def get_historiaclinica(numHistoriaClinica):
     historiaClinica = HistoriaClinica.objects.get(pk=numHistoriaClinica)
     return historiaClinica
 
+def get_historiasclinicas():
+    historias = HistoriaClinica.objects.all()
+    return historias
+
 def create_historiaclinica(hist):
     historiaClinica = HistoriaClinica(name=hist["numHistoriaClinica"])
     historiaClinica.save()
