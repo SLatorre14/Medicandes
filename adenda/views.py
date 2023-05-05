@@ -18,3 +18,10 @@ def adenda_view(request):
         adenda_dto = vl.create_adenda(json.loads(request.body))
         adenda = serializers.serialize('json', [adenda_dto,])
         return HttpResponse(adenda, 'application/json')
+    
+def adendas_view(request):
+    if request.method == 'GET':
+        
+        adendas_dto = vl.get_adendas()
+        adendas = serializers.serialize('json', adendas_dto,)
+        return HttpResponse(adendas, 'application/json')
