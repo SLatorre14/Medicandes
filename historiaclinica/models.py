@@ -13,6 +13,8 @@ class HistoriaClinica(models.Model):
     estadoCivil = models.CharField(max_length=50)
     direccion = models.CharField(max_length=50)
     antecedentesEnfermedades = models.CharField(max_length=50)
+    motivoConsulta = models.CharField(max_length=50)
+    ultimaModificacion = models.CharField(max_length=50)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, default= None)
 
 
