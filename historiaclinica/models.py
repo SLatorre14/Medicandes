@@ -1,4 +1,5 @@
 from django.db import models
+from doctor.models import Doctor
 
 class HistoriaClinica(models.Model):
     numHistoriaClinica = models.FloatField(null=False, blank=True, default=None)
@@ -12,8 +13,9 @@ class HistoriaClinica(models.Model):
     estadoCivil = models.CharField(max_length=50)
     direccion = models.CharField(max_length=50)
     antecedentesEnfermedades = models.CharField(max_length=50)
-    motivoConsulta = models.CharField(max_length=50)
-    ultimaModificacion = models.CharField(max_length=50)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, default= None)
+
+
 
     def __str__(self):
         return '{}'.format(self.numHistoriaClinica)
