@@ -50,7 +50,7 @@ def historiaclinica_view(request):
 @login_required
 def historiaclinica_create(request):
     role = getRole(request)
-    if role == "Doctor" or "Personal administrativo":
+    if role == "Doctor" or "Administrador del sistema":
         if request.method == 'POST':
             form = HistoriaClinicaForm(request.POST)
             if form.is_valid():
