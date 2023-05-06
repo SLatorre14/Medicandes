@@ -5,8 +5,30 @@ class HistoriaClinicaForm(forms.ModelForm):
     class Meta:
         model = HistoriaClinica
         fields = [
-            'name',
+            'numHistoriaClinica', 
+            'dni', 
+            'apellidos', 
+            'nombres', 
+            'edad', 
+            'ocupacion',
+            'fechaNacimiento',
+            'fechaCreacionHistoria',
+            'estadoCivil', 
+            'direccion', 
+            'antecedentesEnfermedades', 
+            'doctor',
         ]
         labels = {
-            'name': 'Name',
+            'numHistoriaClinica':'NumHistoriaClinica' , 
+            'dni': 'Dni', 
+            'apellidos': 'Apellidos', 
+            'nombres': 'Nombres', 
+            'edad':'Edad', 
+            'ocupacion':'Ocupacion',
+            'fechaNacimiento':'FechaNacimiento',
+            'fechaCreacionHistoria':'FechaCreacionHistoria',
+            'estadoCivil':'EstadoCivil', 
+            'direccion':'Direccion', 
+            'antecedentesEnfermedades':'AntecedentesEnfermeades', 
+            'doctor':'Doctor',
         }
