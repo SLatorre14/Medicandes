@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from .logic import historiaclinica_logic as vl
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
+from django.urls import reverse
+from .forms import HistoriaClinicaForm
+from .logic.historiaclinica_logic import create_historiaclinica
+from django.contrib.auth.decorators import login_required
+from medicandes.auth0backend import getRole
 
 @csrf_exempt
 def historiaclinica_view(request, pk):
@@ -39,7 +45,30 @@ def historiaclinica_view(request):
             historiaclinica_dto = vl.create_historiaclinica(json.loads(request.body))
             historiaclinica = serializers.serialize('json', [historiaclinica_dto,])
             return HttpResponse(historiaclinica, 'application/json')
+        
+        
+@login_required
+def historiaclinica_create(request):
+    role = getRole(request)
+    if role == "Doctor" or "Personal administrativo":
+        if request.method == 'POST':
+            form = HistoriaClinicaForm(request.POST)
+            if form.is_valid():
+                create_historiaclinica(form)
+                messages.add_message(request, messages.SUCCESS, 'Successfully created historia clinica')
+                return HttpResponseRedirect(reverse('historiaclinicaCreate'))
+            else:
+                print(form.errors)
+        else:
+            form = HistoriaClinicaForm()
 
-# Create your views here.
+        context = {
+            'form': form,
+        }
+        return render(request, 'Historiaclinica/historiaclinicaCreate.html', context)
+    else:
+        return HttpResponse("Unauthorized User")
+
+
 
 

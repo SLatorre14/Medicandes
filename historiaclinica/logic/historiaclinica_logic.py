@@ -8,8 +8,9 @@ def get_historiasclinicas():
     historias = HistoriaClinica.objects.all()
     return historias
 
-def create_historiaclinica(hist):
+def create_historiaclinica(hist, form):
     historiaClinica = HistoriaClinica(name=hist["numHistoriaClinica"])
+    historiaClinica = form.save()
     historiaClinica.save()
     return historiaClinica
 
