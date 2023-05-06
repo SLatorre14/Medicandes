@@ -32,7 +32,7 @@ def historiaclinica_view(request, pk):
 
 def historiasclinicas_view(request):
     role = getRole(request)
-    if role == "Doctor" or "Administrador del sistema":
+    if role == "Doctor" or role == "Administrador del sistema":
         if request.method == 'GET':
             
             historiaclinica_dto = vl.get_historiasclinicas()
