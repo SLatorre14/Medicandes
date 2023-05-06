@@ -146,5 +146,5 @@ SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid',
                            'email',
                            'role', ] 
 
-AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 
+AUTHENTICATION_BACKENDS = { 'medicandes.auth0backend.Auth0', 
                            'django.contrib.auth.backends.ModelBackend', }
