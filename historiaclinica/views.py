@@ -31,12 +31,15 @@ def historiaclinica_view(request, pk):
         return HttpResponse(historiaclinica, 'application/json')
 
 def historiasclinicas_view(request):
-    if request.method == 'GET':
-        
-        historiaclinica_dto = vl.get_historiasclinicas()
-        historiasclinicas = serializers.serialize('json', historiaclinica_dto,)
-        return HttpResponse(historiasclinicas, 'application/json')
-
+    role = getRole(request)
+    if role == "Doctor" or "Administrador del sistema":
+        if request.method == 'GET':
+            
+            historiaclinica_dto = vl.get_historiasclinicas()
+            historiasclinicas = serializers.serialize('json', historiaclinica_dto,)
+            return HttpResponse(historiasclinicas, 'application/json')
+    else:
+        return HttpResponse("Unauthorized User")
 
 @csrf_exempt
 def historiaclinica_view(request):
